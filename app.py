@@ -27,6 +27,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+print(st.secrets["gcp_service_account"])
+
 # Create a connection object.
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"],
@@ -35,7 +37,7 @@ credentials = service_account.Credentials.from_service_account_info(
     ],
 )
 conn = connect(credentials=credentials)
-print(st.secrets["gcp_service_account"])
+
 
 # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 10 min.
