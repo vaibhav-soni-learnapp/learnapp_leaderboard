@@ -50,7 +50,7 @@ def run_query(query):
 
 st.write("----")
 
-cohort_name = st.selectbox("Select the cohort", ["latd-02", "latd-03", "lifs-02"])
+cohort_name = st.selectbox("Select the cohort", ["lotfs-01"])
 st.write("")
 
 if st.button("Generate Leaderboard"):
@@ -62,7 +62,7 @@ if st.button("Generate Leaderboard"):
     # for row in rows:
     #     st.write(f"{row.Name} has a score of {round(row.Score)}")
 
-    df = pd.DataFrame(rows)[["User_ID", "Name", "Score"]]
+    df = pd.DataFrame(rows)[["LOTFS_USER_ID", "LOTFS_NAME", "LOTFS_SCORE"]]
     df.set_index("User_ID", inplace=True)
 
     st.write("")
