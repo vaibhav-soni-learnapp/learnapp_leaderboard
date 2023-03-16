@@ -52,7 +52,7 @@ def create_hyperlink(row):
         return "Joined"
     else:
         url = "https://forms.gle/NaX7e7YPJk9XKaKh7"
-        return f'"{url}"
+        return f'"{url}":
 
 st.write("----")
 
