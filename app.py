@@ -61,11 +61,21 @@ if st.button("Generate Leaderboard"):
     # Print results.
     # for row in rows:
     #     st.write(f"{row.Name} has a score of {round(row.Score)}")
-
+            
+            
+def create_hyperlink(row):
+    if row["Google_Classroom_Status"] == "Joined":
+        return "Joined"
+    else:
+        url = "https://forms.gle/NaX7e7YPJk9XKaKh7"
+        return f'<a href="{url}" target="_blank">Not enrolled</a>'
+            
     df = pd.DataFrame(rows)[["LOTFS_RANK","LOTFS_USER_ID", "LOTFS_NAME", "LOTFS_SCORE","Google_Classroom_Status"]]
     df["LOTFS_RANK"] = df["LOTFS_RANK"].astype(int) # convert the data type of the column to integer
     df.set_index("LOTFS_USER_ID", inplace=True)
+    df["Google_Classroom_Status"] = df.apply(create_hyperlink, axis=1)
 
+    st.dataframe(df, escape_html=False)
     st.write("")
     st.write("")
     st.subheader(f"Leaderboard for {cohort_name.upper()}")
