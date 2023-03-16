@@ -62,7 +62,8 @@ if st.button("Generate Leaderboard"):
     # for row in rows:
     #     st.write(f"{row.Name} has a score of {round(row.Score)}")
 
-    df = pd.DataFrame(rows)[["LOTFS_RANK","LOTFS_USER_ID", "LOTFS_NAME", "LOTFS_SCORE"]]
+    df = pd.DataFrame(rows)[["LOTFS_RANK","LOTFS_USER_ID", "LOTFS_NAME", "LOTFS_SCORE","Google_Classroom_Status"]]
+    df["LOTFS_RANK"] = df["LOTFS_RANK"].astype(int) # convert the data type of the column to integer
     df.set_index("LOTFS_USER_ID", inplace=True)
 
     st.write("")
