@@ -82,6 +82,6 @@ if st.button("Generate Leaderboard"):
     st.subheader(f"Leaderboard for {cohort_name.upper()}")
     #st.dataframe(df)
     df = df.to_html(escape=False)
-    st.write(df, unsafe_allow_html=True)
-     
+    #st.write(df, unsafe_allow_html=True)
+    st.dataframe(df)
  
