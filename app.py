@@ -83,5 +83,5 @@ if st.button("Generate Leaderboard"):
     #st.dataframe(df)
     df = df.to_html(escape=False)
     #st.write(df, unsafe_allow_html=True)
-    st.dataframe(df)
+    st.dataframe(df, unsafe_allow_html=True)
  
