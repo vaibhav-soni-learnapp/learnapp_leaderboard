@@ -82,4 +82,6 @@ if st.button("Generate Leaderboard"):
     st.subheader(f"Leaderboard for {cohort_name.upper()}")
     #st.dataframe(df)
      # Display the table with the hyperlink column
-    st.table(df)       
+    st.table(df)      
+    st.table(df, unsafe_allow_html=True)
+ 
