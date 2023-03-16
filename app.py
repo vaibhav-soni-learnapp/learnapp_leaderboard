@@ -52,7 +52,7 @@ def create_hyperlink(row):
         return "Joined"
     else:
         url = "https://forms.gle/NaX7e7YPJk9XKaKh7"
-        return url
+        return f'<a href="{url}" target="_blank">Not enrolled</a>'
 
 st.write("----")
 
@@ -80,6 +80,8 @@ if st.button("Generate Leaderboard"):
     st.write("")
     st.write("")
     st.subheader(f"Leaderboard for {cohort_name.upper()}")
-    st.dataframe(df)
+    #st.dataframe(df)
+    df = df.to_html(escape=False)
+    st.write(df, unsafe_allow_html=True)
      
  
