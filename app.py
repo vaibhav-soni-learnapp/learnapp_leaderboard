@@ -47,6 +47,12 @@ def run_query(query):
     rows = rows.fetchall()
     return rows
 
+def create_hyperlink(row):
+    if row["Google_Classroom_Status"] == "Joined":
+        return "Joined"
+    else:
+        url = "https://forms.gle/NaX7e7YPJk9XKaKh7"
+        return f'<a href="{url}" target="_blank">Not enrolled</a>'
 
 st.write("----")
 
@@ -63,12 +69,7 @@ if st.button("Generate Leaderboard"):
     #     st.write(f"{row.Name} has a score of {round(row.Score)}")
             
             
-def create_hyperlink(row):
-    if row["Google_Classroom_Status"] == "Joined":
-        return "Joined"
-    else:
-        url = "https://forms.gle/NaX7e7YPJk9XKaKh7"
-        return f'<a href="{url}" target="_blank">Not enrolled</a>'
+
             
     df = pd.DataFrame(rows)[["LOTFS_RANK","LOTFS_USER_ID", "LOTFS_NAME", "LOTFS_SCORE","Google_Classroom_Status"]]
     df["LOTFS_RANK"] = df["LOTFS_RANK"].astype(int) # convert the data type of the column to integer
