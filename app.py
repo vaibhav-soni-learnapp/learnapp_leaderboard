@@ -76,8 +76,10 @@ if st.button("Generate Leaderboard"):
     df.set_index("LOTFS_USER_ID", inplace=True)
     df["Google_Classroom_Status"] = df.apply(create_hyperlink, axis=1)
 
-    st.dataframe(df, escape_html=False)
+    #st.dataframe(df, escape_html=False)
     st.write("")
     st.write("")
     st.subheader(f"Leaderboard for {cohort_name.upper()}")
-    st.dataframe(df)
+    #st.dataframe(df)
+     # Display the table with the hyperlink column
+            st.table(df)       
