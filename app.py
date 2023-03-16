@@ -23,7 +23,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.markdown(
-    "<h6 style='text-align: center; color: black;'>LA Cohort Leaderboard</h2>",
+    "<h3 style='text-align: center; color: black;'>LA Cohort Leaderboard</h3>",
     unsafe_allow_html=True,
 )
 
